@@ -6,7 +6,7 @@
 //     struct s
 //     {
 //         char a[7];
-//         const char const *p;
+//         const char *const p;
 //         union u
 //         {
 //             int i;
