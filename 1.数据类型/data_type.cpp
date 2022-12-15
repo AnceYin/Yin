@@ -1,4 +1,3 @@
-// 以下为纯代码版，试着先想想每个printf函数打印了什么
 // #include <stdio.h>
 // #include <stddef.h>
 // int main()
