@@ -2,7 +2,9 @@
 // using namespace std;
 // class complex
 // {
+// private:
 //     double m_re, m_im;
+//
 // public:
 //     complex(const double re, const double im = 0) : m_re(re), m_im(im) {}
 //     complex &operator()(const double re, const double im) { return m_re = re, m_im = im, *this; }
@@ -26,6 +28,7 @@ using namespace std;
 // 这里运用到了基于对象的思想，创建了一个复数类并实现了复数类的加法
 class complex
 {
+private:
     // 定义复数类的实部m_re(real part)和虚部m_im(imaginary part)
     double m_re, m_im;
 
