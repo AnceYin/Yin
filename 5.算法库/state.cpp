@@ -5,7 +5,8 @@
 void test01() {
 	struct A { void operator()() { printf("逻辑A\n"); } };
 	struct B { void operator()() { printf("逻辑B\n"); } };
-	std::variant<A, B> state{A{}};
+	using State = std::variant<A, B>;
+	State state{A{}};
 	std::visit([](auto&& s) {s(); }, state);
 	state = B{};
 	std::visit([](auto&& s) {s(); }, state);
