@@ -1,5 +1,6 @@
 // 实现多态的两种方法
 #include <variant>
+#include <iostream>
 #include <functional>
 
 void test01() {
