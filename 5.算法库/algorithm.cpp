@@ -46,7 +46,7 @@ int main() {
 	count_if(R1,one);//3
 	find_if(R1,one);//返回指向0的迭代器
 	copy_if(R7,R6.begin(), one);//R6:4,R5中的牌
-	remove_if(R4,one);//剩下1，3，5
+	std::erase_if(R4,one);//剩下1，3，5
 	replace_if(R5,one,0);//替换成了0,1,0,3,0,5,0
 
 	//示例6
