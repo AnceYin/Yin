@@ -10,7 +10,7 @@ auto operator|(D d, F f) {
 int main() {
     const int i = 3;
     //单参=>多参
-    auto f = [](auto i) { return std::make_tuple(100, "string"); };
+    auto f =[](int i, std::string s){ return [=](auto i) { return std::make_tuple(i, s); };};
     //多参=>返回多态
     auto g = [](std::tuple<int, std::string> data)->std::variant<int, std::string> {
         if (0) return std::get<0>(data);
@@ -23,5 +23,5 @@ int main() {
         if (std::holds_alternative<std::string>(state))
             std::cout << std::get<std::string>(state);
     };
-    i | f | g | h ;
+    i | f(100， "string") | g | h ;
 }
