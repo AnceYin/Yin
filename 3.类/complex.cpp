@@ -7,6 +7,12 @@
 //
 // public:
 //     complex(const double re, const double im = 0) : m_re(re), m_im(im) {}
+//     complex() : complex(0) {}
+//     complex(const complex& comp) = default;
+//     complex& operator=(const complex& comp) = default;
+//     complex(complex&& comp) noexcept = default;
+//     complex& operator=(complex&& comp) noexcept = default;
+//     virtual ~complex() = default;
 //     complex &operator()(const double re, const double im) { return m_re = re, m_im = im, *this; }
 //     complex operator+(const complex &z) const { return complex(m_re + z.m_re, m_im + z.m_im); }
 //     friend ostream &operator<<(ostream &os, const complex &x) { return os << x.m_re << '+' << x.m_im << 'i'; }
@@ -39,6 +45,18 @@ public:
     // 初始化列表能让一些在定义时必须初始化的类型初始化：const类型，引用类型，没有默认构造函数的自定义类型
     // 单参构造函数可以实现对内质类型的隐式类型转换，如果要避免这种情况可以在构造函数前面加上explicit
     complex(const double re, const double im = 0) : m_re(re)， m_im(im) {}
+
+    // 委托上述的单参构造函数编写无参构造函数
+    complex() : complex(0) {}
+
+    //default关键字使用编译器默认的拷贝/移动构造和拷贝/移动赋值，noexcept表示不抛出异常
+    complex(const complex& comp) = default;
+    complex& operator=(const complex& comp) = default;
+    complex(complex&& comp) noexcept = default;
+    complex& operator=(complex&& comp) noexcept = default;
+
+    // 将析构函数设置为虚函数可以正确的调用派生类的析构函数避免内存泄漏
+    virtual ~complex() = default;
 
     // 这里用到了逗号表达式，他会从左往右计算各个表达式，只有最后一个表达式的值会保留，其他的值会被丢掉
     // 将传入的两个参数分别赋给调用他的类的成员并以引用的方式传回类自身，这样的操作可以实现一些重复调用操作
