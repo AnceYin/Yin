@@ -10,6 +10,8 @@ int main(){
     std::next();//可看作不修改源迭代器的advance版本
     std::prev();
     std::iter_swap();//交换两个不同类型的迭代器的值
+    
+    std::back_inserter();//用于在容器尾部插入的迭代器适配器
 
     std::size();
     std::empty();
